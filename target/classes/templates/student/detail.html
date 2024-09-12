@@ -1,0 +1,27 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail Student</title>
+    <span th:replace="~{homepage :: bootstrapImports}"></span>
+</head>
+<body>
+<div th:replace="~{homepage :: navbarImport}"></div>
+<a th:href="@{/list}" class=" btn btn-secondary">Retour</a>
+
+<div>
+    <h1>Détail d'un étudiant</h1>
+    <ul>
+        <li><strong>Identifiant: </strong><span th:text="${student.id}"></span></li>
+        <li><strong>Nom: </strong><span th:text="${student.lastName}"></span></li>
+        <li><strong>Prénom: </strong><span th:text="${student.firstName}"></span></li>
+        <li><strong>Age: </strong><span th:text="${student.age}"></span></li>
+        <li><strong>Adresse mail: </strong><span th:text="${student.mail}"></span></li>
+        <li><a th:href="@{/update(idStudent=${student.id})}" class="btn btn-success">Modifier</a></li>
+        <br>
+        <li><a th:href="@{/delete(idStudent=${student.id})}" class="btn btn-danger">Supprimer</a></li>
+    </ul>
+</div>
+
+</body>
+</html>

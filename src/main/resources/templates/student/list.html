@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List All Students</title>
+    <span th:replace="~{homepage :: bootstrapImports}"></span>
+</head>
+<body>
+<div th:replace="~{homepage :: navbarImport}"></div>
+<a th:href="@{/}">Homepage</a>
+<h1>Liste des étudiants </h1>
+<ul th:each="student : ${students}">
+    <li><strong>Nom complet: </strong><!--/*@thymesVar id="getLastname" type=""*/-->
+    <span th:text="${student.firstName} + ' ' + ${student.lastName}"></span></li>
+    <li><a th:href="@{/list/{id} (id = ${student.getId()})}" class="btn btn-primary">Plus de détails</a></li>
+</ul>
+
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire</title>
+    <span th:replace="~{homepage :: bootstrapImports}"></span>
+</head>
+
+<body>
+<div th:replace="~{homepage :: navbarImport}"></div>
+<a th:href="@{/list}">Retour</a>*
+
+    <div>
+        <h2>Formulaire étudiant</h2>
+        <form class="mb-3" th:action="@{/add}" th:object="${student}" method="post">
+            <label for="firstName" class="form-label">Prénom: </label>
+            <input type="text" class="form-control" id="firstName" placeholder="Saisissez un prénom" th:field="*{firstName}">
+
+            <label for="lastName" class="form-label">Nom: </label>
+            <input type="text" class="form-control" id="lastName" placeholder="Saisissez un nom" th:field="*{lastName}">
+
+            <label for="age" class="form-label">Age: </label>
+            <input type="number" class="form-control" id="age" placeholder="Saisissez un âge" th:field="*{age}">
+
+            <label for="mail" class="form-label">Email: </label>
+            <input type="text" class="form-control" id="mail" placeholder="Saisissez un mail" th:field="*{mail}">
+            <br>
+            <button class="btn btn-primary"><span th:text="${student.getId() != null ? 'Modifier' : 'Créer'}"></span></button>
+        </form>
+    </div>
+</body>
+</html>
